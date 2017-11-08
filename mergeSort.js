@@ -22,23 +22,24 @@ function merge(left_array, right_array) {
 }
 
 function mergeSort(arr) {
+  // base case:
+  // an array of 1 or fewer elements is, by definition, sorted.
   if (arr.length <= 1) {
     return arr;
   }
+  // Get the middle index
+  var mid = Math.round(arr.length / 2);
+  // Divide the array into left and right sides
+  var leftArray = arr.slice(0, mid);
+  var rightArray = arr.slice(mid, arr.length);
+  // Call mergeSort on each side
+  var sortedLeftArray = mergeSort(leftArray);
+  var sortedRightArray = mergeSort(rightArray);
 
-  var array_size = arr.length;
-  var half_of_size = Math.round(array_size / 2);
-
-  var left_array = arr.slice(0, half_of_size);
-  var right_array = arr.slice(half_of_size, arr.length);
-
-  var sorted_left_array = mergeSort(left_array);
-  var sorted_right_array = mergeSort(right_array);
-
-  return merge(sorted_left_array, sorted_right_array);
+  return merge(sortedLeftArray, sortedRightArray);
 }
 
 // Let's give this a spin?
-var a = [4, 92, 1, 39, 19, 93, 49, 10, 99, 103, 13];
+var a = [4, 92, 1, 39, 19, 93, 49, 10, 99, 103, 13, 102, 32, 345, 145, 4590, 111, 56, 167, 2101];
 // var a = [42, 13, 20];
 console.log( mergeSort(a) ); // => [1, 4, 10, 19, 39, 49, 92, 93]
