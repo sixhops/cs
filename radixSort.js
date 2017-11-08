@@ -11,7 +11,7 @@ function getDigit(num, nth) {
   return ret;
 }
 
-// radixSort
+// radixSort - LSD version
 function radixSort(list) {
   // This counts the digits in each number in the list and returns the highest
   //  count minus 1.
