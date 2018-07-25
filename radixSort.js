@@ -1,8 +1,8 @@
 
-// helper function to get the last nth digit of a number
+// Function to get the last Nth digit of a number
 function getDigit(num, nth) {
   // get last nth digit of a number
-  //  1234 => 1=4, 2=3, 3=2, 4=1 (right to left)
+  //  3579 => 1st=9, 2nd=7, 3rd=5, 4th=3 (right to left)
   var ret = 0;
   while (nth--) {
     ret = num % 10;
@@ -13,7 +13,7 @@ function getDigit(num, nth) {
 
 // radixSort - LSD version
 function radixSort(list) {
-  // This counts the digits in each number in the list and returns the highest
+  // This line counts the digits in each number in the list and returns the highest
   //  count minus 1.
   var max = Math.floor(Math.log10(Math.max.apply(Math,list)));
   var digitBuckets = [];
@@ -34,7 +34,7 @@ function radixSort(list) {
       digitBuckets[digit].push(list[j]);
     }
 
-    // rebuild the list according to this digit
+    // Rebuild the array from the buckets
     idx = 0;
     // Loop through the whole digitBucket array or arrays
     for (var t = 0; t < digitBuckets.length; t++) {

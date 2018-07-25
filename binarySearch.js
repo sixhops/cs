@@ -6,12 +6,16 @@ function binarySearch(arr, val, min=0, max=null) {
 
   var mid = Math.floor((min + max) / 2);
 
-  if (val < arr[mid]) {
-    return binarySearch(arr, val, min, mid - 1);
-  } else if (val > arr[mid]) {
-    return binarySearch(arr, val, mid + 1, max);
+  if (min <= max) {
+    if (val < arr[mid]) {
+      return binarySearch(arr, val, min, mid - 1);
+    } else if (val > arr[mid]) {
+      return binarySearch(arr, val, mid + 1, max);
+    } else {
+      return mid;
+    }
   } else {
-    return mid;
+    return -1;
   }
 }
 
