@@ -15,7 +15,7 @@ function getDigit(num, nth) {
 function radixSort(list) {
   // This line counts the digits in each number in the list and returns the highest
   //  count minus 1.
-  var max = Math.floor(Math.log10(Math.max.apply(Math,list)));
+  var max = Math.floor(Math.log10(Math.max(...list)));
   var digitBuckets = [];
   var idx = 0;
 
